@@ -32,7 +32,8 @@
     };
 
     websocket.onmessage = function (e) {
-        writeToScreen("<span>RESPONSE: " + e.data + "</span>");
+        let weight = parseFloat(e.data)/1000;
+        writeToScreen("<span>RESPONSE: " + weight + "kg</span>");
         // websocket.close();
     };
 

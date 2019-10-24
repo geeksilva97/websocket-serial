@@ -115,7 +115,7 @@ namespace BALANCA
 
                         weightThread = new Thread(ReadWeight);
                         weightThread.Start();
-
+                        Console.WriteLine("Resultado da balança: {0}", balanceResult);
                         // Cria uma nova thread
                         // Console.WriteLine("{0} com status: {1}", weightThread.Name, weightThread.ThreadState);
                        
@@ -215,6 +215,16 @@ namespace BALANCA
             Console.WriteLine(indata.Substring(1, indata.Length - 2));
             double peso = Int32.Parse(indata.Substring(1, indata.Length - 2)) / 1000.0;
             Console.WriteLine("peso: {0}", peso);
+
+            string greeting = balanceResult.PadLeft(9, '0');
+            byte[] payload = Encoding.UTF8.GetBytes(greeting);
+
+            List<byte> bytesSend = new List<byte>();
+            bytesSend.Add(129);
+            bytesSend.Add(9); // 0000 0110
+            bytesSend.AddRange(payload);
+            var arr = bytesSend.ToArray();
+            stream.Write(arr, 0, arr.Length);
 
             // Console.ReadKey();
         }
