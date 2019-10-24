@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO.Ports;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Net.Sockets;
@@ -115,34 +114,6 @@ namespace BALANCA
 
                         weightThread = new Thread(ReadWeight);
                         weightThread.Start();
-                        Console.WriteLine("Resultado da balança: {0}", balanceResult);
-                        // Cria uma nova thread
-                        // Console.WriteLine("{0} com status: {1}", weightThread.Name, weightThread.ThreadState);
-                       
-                        // Thread w = new Thread(ReadWeight);
-                        // w.Start();
-                        // w.Abort();
-
-                        //  Console.WriteLine("Is thread {1} is alive : {0}",
-                        //     weightThread.IsAlive, weightThread.Name);
-
-                        
-                        // weightThread.Start();
-                        // weightThread.Suspend();
-                        
-
-                        // string greeting = "000001231";
-                        // byte[] payload = Encoding.UTF8.GetBytes(greeting);
-
-                        // List<byte> bytesSend = new List<byte>();
-                        // bytesSend.Add(129);
-                        // bytesSend.Add(9); // 0000 0110
-                        // bytesSend.AddRange(payload);
-                        // var arr = bytesSend.ToArray();
-                        // stream.Write(arr, 0, arr.Length);
-
-                        // ReadWeight();
-
                     }
                     else
                         Console.WriteLine("mask bit not set");

@@ -24,7 +24,7 @@
 
     websocket.onopen = function (e) {
         writeToScreen("CONNECTED");
-        doSend("WebSocket rocks");
+        // doSend("WebSocket rocks");
     };
 
     websocket.onclose = function (e) {
@@ -32,6 +32,7 @@
     };
 
     websocket.onmessage = function (e) {
+        console.log(e);
         let weight = parseFloat(e.data)/1000;
         writeToScreen("<span>RESPONSE: " + weight + "kg</span>");
         // websocket.close();
