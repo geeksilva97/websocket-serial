@@ -16,7 +16,7 @@ namespace BALANCA
         static Thread weightThread;
         static SerialPort mySerialPort;
         static string ip = "127.0.0.1";
-        static int port = 80;
+        static int port = 13000;
         static string balanceResult;
         static NetworkStream stream;
 
@@ -196,7 +196,6 @@ namespace BALANCA
             bytesSend.AddRange(payload);
             var arr = bytesSend.ToArray();
             stream.Write(arr, 0, arr.Length);
-
             // Console.ReadKey();
         }
     }
