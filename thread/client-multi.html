@@ -1,0 +1,36 @@
+<button>Send</button>
+
+<script>
+    let websocket = new WebSocket('ws://127.0.0.1:8000');
+    document.querySelector('button').addEventListener('click', () => {
+        websocket.send('say hello');
+    });
+    websocket.onopen = (e) => {
+        // websocket.send('Websocket rocks');
+        console.log(e);
+        console.log('open', websocket.readyState == WebSocket.OPEN);
+    };
+
+    websocket.onclose = (e) => {
+        alert('Conexão fechada, atualizando página');
+        // location.reload();
+        console.log(e);
+    };
+
+    websocket.onerror = (e) => {
+        console.log(e);
+    };
+
+
+    websocket.onmessage = (e) => {
+        console.log(e);
+        console.log('recebi um peso');
+    };
+
+    setInterval(() => {
+        // websocket.send('testing');
+        console.log();
+    }, 2000);
+
+    
+</script>
